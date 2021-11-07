@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {UserModule} from "./user/user.module";
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {UserModule} from "../user/user.module";
 import {FriendsModule} from "./friends/friends.module";
 import {MoviesModule} from "./movies/movies.module";
-
 
 
 @NgModule({
@@ -17,4 +16,5 @@ import {MoviesModule} from "./movies/movies.module";
     MoviesModule
   ]
 })
-export class AdminModule { }
+export class AdminModule {
+}

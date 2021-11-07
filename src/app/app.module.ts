@@ -6,7 +6,7 @@ import {NavigationComponent} from './navigation/navigation.component';
 import {RouterModule} from "@angular/router";
 import {mainRoutes} from "./main-routes";
 import {PublicModule} from "./public/public.module";
-import {AdminModule} from "./admin/admin.module";
+import {AdminModule} from "./protected/admin.module";
 
 @NgModule({
   declarations: [
@@ -22,4 +22,5 @@ import {AdminModule} from "./admin/admin.module";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
