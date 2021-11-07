@@ -1,4 +1,4 @@
-<div class="navigation">
+<div *ngIf="isHeaderVisible" class="navigation">
   <ul>
     <li *ngFor="let link of links">
       <a [routerLink]="link.url">{{ link.name }}</a>

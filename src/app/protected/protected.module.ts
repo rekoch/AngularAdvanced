@@ -1,15 +1,15 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {AdminRoutingModule} from "./admin-routing.module";
+import {ProtectedRoutingModule} from "./protected-routing.module";
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    ProtectedRoutingModule
   ],
   exports: []
 })
-export class AdminModule {
+export class ProtectedModule {
 }
