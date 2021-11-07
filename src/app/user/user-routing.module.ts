@@ -7,12 +7,11 @@ import {RegisterComponent} from "./register/register.component";
 const userRoutes: Routes = [
   {
     path: 'login',
-    component: LoginComponent, data: {hideHeader: true}
+    component: LoginComponent
   },
   {
     path: 'register',
-    component: RegisterComponent,
-    data: {hideHeader: true}
+    component: RegisterComponent
   },
 ]
 
