@@ -1,1 +1,8 @@
-<p>rate works!</p>
+<h2>Rate Component</h2>
+<div class="grid col-3">
+  <div *ngIf="movie$ | async as movie" class="flex-center direction-column">
+    <h2>{{movie.title}}</h2>
+    <div></div>
+    <img [src]="movie.imageUrl">
+  </div>
+</div>

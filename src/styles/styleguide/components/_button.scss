@@ -1,0 +1,19 @@
+@use "../variables";
+
+button {
+  padding: variables.$padding-1;
+  min-width: variables.$min-width-1;
+  border: none;
+  border-radius: variables.$border-radius;
+  margin-top: variables.$margin-2;
+
+  &.primary {
+
+  }
+
+  &.secondary {
+    background-color: transparent;
+    border: 1px solid variables.$primary-foreground;
+  }
+
+}

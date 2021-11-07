@@ -1,1 +1,7 @@
-<p>dashboard works!</p>
+<div *ngIf="movies$ | async as movies" class="grid col-3">
+  <div *ngFor="let movie of movies" class="flex-center">
+    <h2>{{movie.title}}</h2>
+    <img [src]="movie.imageUrl">
+    <button (click)="rate(movie)" class="secondary">rate</button>
+  </div>
+</div>
