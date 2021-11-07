@@ -1,12 +1,23 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ManageComponent} from './manage/manage.component';
+import {RateComponent} from './rate/rate.component';
+import {RouterModule} from "@angular/router";
+import {moviesRoutes} from "./movies-routes";
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ManageComponent,
+    RateComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(moviesRoutes)
+  ], exports: [
+    ManageComponent,
+    RateComponent
   ]
 })
-export class MoviesModule { }
+export class MoviesModule {
+}
