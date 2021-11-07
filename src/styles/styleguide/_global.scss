@@ -1,0 +1,13 @@
+@use "variables";
+* {
+  color: variables.$primary-foreground;
+}
+
+body {
+  margin: 0;
+  background-color: variables.$primary-background;
+}
+
+.frame {
+  margin: variables.$margin-2;
+}

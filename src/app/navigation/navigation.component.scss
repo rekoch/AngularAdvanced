@@ -1,0 +1,21 @@
+@use "src/styles/styleguide/variables";
+.navigation {
+  background-color: variables.$secondary-background;
+  padding: variables.$padding-1;
+  margin: (- variables.$margin-2) (- variables.$margin-2) variables.$margin-2 (- variables.$margin-2) ;
+
+  ul {
+    padding-inline: 0;
+    display: flex;
+
+    li {
+      list-style-type: none;
+      margin: 0;
+
+      a {
+        text-decoration: none;
+      }
+
+    }
+  }
+}

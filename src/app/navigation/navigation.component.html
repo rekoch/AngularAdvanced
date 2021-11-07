@@ -1,0 +1,7 @@
+<div class="navigation">
+  <ul>
+    <li *ngFor="let link from links">
+      <a [routerLink]="link.url">{{link.name}}</a>
+    </li>
+  </ul>
+</div>
