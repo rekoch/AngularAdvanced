@@ -12,11 +12,11 @@ export class NavigationComponent implements OnInit {
     { url: 'search', name: 'Search' },
     { url: 'recommendation', name: 'Recommendation' },
     { url: 'trailer', name: 'Trailer' },
-    { url: 'manage', name: 'Manage movies' },
-    { url: 'rate', name: 'Rate movies' },
-    { url: 'invite', name: 'Invite Friend' },
-    { url: 'login', name: 'Login' },
-    { url: 'register', name: 'Register' },
+    { url: 'admin/movies/manage', name: 'Manage movies' },
+    { url: 'admin/movies/rate', name: 'Rate movies' },
+    { url: 'admin/friends/invite', name: 'Invite Friend' },
+    { url: 'admin/user/login', name: 'Login' },
+    { url: 'admin/user/register', name: 'Register' },
   ];
 
   constructor() {}

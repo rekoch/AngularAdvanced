@@ -14,9 +14,6 @@ import {moviesRoutes} from "./movies-routes";
   imports: [
     CommonModule,
     RouterModule.forChild(moviesRoutes)
-  ], exports: [
-    ManageComponent,
-    RateComponent
   ]
 })
 export class MoviesModule {

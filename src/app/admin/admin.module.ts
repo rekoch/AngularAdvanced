@@ -1,20 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {UserModule} from "./user/user.module";
-import {FriendsModule} from "./friends/friends.module";
-import {MoviesModule} from "./movies/movies.module";
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {AdminRoutingModule} from "./admin-routing.module";
 
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    AdminRoutingModule
   ],
-  exports: [
-    UserModule,
-    FriendsModule,
-    MoviesModule
-  ]
+  exports: []
 })
-export class AdminModule { }
+export class AdminModule {
+}

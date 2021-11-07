@@ -15,9 +15,6 @@ import {userRoutes} from "./user-routes";
   imports: [
     CommonModule,
     RouterModule.forChild(userRoutes)
-  ], exports: [
-    LoginComponent,
-    RegisterComponent
   ]
 })
 export class UserModule { }

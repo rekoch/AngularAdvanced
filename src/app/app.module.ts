@@ -6,7 +6,6 @@ import {NavigationComponent} from './navigation/navigation.component';
 import {RouterModule} from "@angular/router";
 import {mainRoutes} from "./main-routes";
 import {PublicModule} from "./public/public.module";
-import {AdminModule} from "./admin/admin.module";
 
 @NgModule({
   declarations: [
@@ -16,10 +15,10 @@ import {AdminModule} from "./admin/admin.module";
   imports: [
     BrowserModule,
     PublicModule,
-    AdminModule,
     RouterModule.forRoot(mainRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

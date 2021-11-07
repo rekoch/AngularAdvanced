@@ -13,9 +13,6 @@ import {friendsRoutes} from "./friends-routes";
     CommonModule,
     RouterModule.forChild(friendsRoutes)
   ],
-  exports: [
-    InvitationComponent
-  ]
 })
 export class FriendsModule {
 }
