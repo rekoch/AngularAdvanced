@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {MoviesService} from "../../shared/services/movies.service";
 import {Observable} from "rxjs";
-import {Movie} from "../../shared/models/Movie";
+import {Movie} from "../../shared/models/movie";
 
 @Component({
   selector: 'app-dashboard',
@@ -14,6 +14,10 @@ export class DashboardComponent implements OnInit {
   selectedMovie: Movie | undefined;
 
   constructor(private router: Router, private movieService: MoviesService) {
+  }
+
+  get selectedMovieTrailer(): Pick<Movie, "trailerUrl"> {
+    return {...this.selectedMovie}
   }
 
   ngOnInit(): void {
@@ -28,4 +32,3 @@ export class DashboardComponent implements OnInit {
     this.selectedMovie = movie;
   }
 }
-
