@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Movie} from "../../../shared/models/movie";
 
 @Component({
   selector: 'app-trailer',
@@ -6,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./trailer.component.scss']
 })
 export class TrailerComponent implements OnInit {
-  @Input() videoSrc: string | undefined;
+  @Input() movieTrailer: Pick<Movie, "trailerUrl"> | undefined;
 
   constructor() {
   }
