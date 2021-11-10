@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MoviesService} from "../../../shared/services/movies.service";
+import {Movie} from "../../../shared/models/movie";
 
 @Component({
   selector: 'app-manage',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manage.component.scss']
 })
 export class ManageComponent implements OnInit {
+  movies: Movie[] = [];
 
-  constructor() { }
+  constructor(private moviesService: MoviesService) {
+  }
 
   ngOnInit(): void {
+    this.moviesService.getAllMovies().subscribe(movies => this.movies = movies)
   }
 
 }
