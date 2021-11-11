@@ -1,0 +1,31 @@
+@use "src/styles/styleguide/variables";
+
+.movie {
+  margin: 20px;
+}
+
+.grid {
+  grid-gap: 20px;
+}
+
+.grid .grid {
+  box-shadow: 0 0 5px 5px white;
+  margin: 20px 0 20px 0;
+  padding: 20px 0 20px 0;
+  grid-template-columns: 70px 300px;
+  grid-template-rows: auto;
+  align-items: center;
+}
+
+button {
+  grid-column-start: 2;
+  color: black;
+}
+
+input {
+  background: transparent;
+  border: 2px solid variables.$primary-foreground;
+  color: variables.$secondary-foreground;
+  padding: 5px;
+  width: 100%;
+}

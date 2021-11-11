@@ -17,4 +17,9 @@ export class ManageComponent implements OnInit {
     this.moviesService.getAllMovies().subscribe(movies => this.movies = movies)
   }
 
+  updateMovie(movie: Movie) {
+    debugger;
+    this.moviesService.updateMovie(movie);
+  }
+
 }

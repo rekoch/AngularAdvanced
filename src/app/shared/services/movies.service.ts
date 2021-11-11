@@ -37,6 +37,12 @@ export class MoviesService {
     )
   }
 
+  public updateMovie(movie: Movie): void {
+    debugger;
+    let foundMovie = this.allMovies.findIndex(movieIter => movieIter.id === movie.id);
+    this.allMovies[foundMovie] = movie;
+  }
+
   public getMovieById(id: number): Observable<Movie> {
     let foundMovie = this.allMovies.find(movie => movie.id === id);
     if (!foundMovie) {

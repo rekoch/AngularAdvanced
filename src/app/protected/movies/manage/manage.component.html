@@ -1,2 +1,2 @@
 <h1>all the nice movies</h1>
-<app-overview [allMovies]="movies"></app-overview>
+<app-overview (movieChanged)="updateMovie($event)" [allMovies]="movies"></app-overview>

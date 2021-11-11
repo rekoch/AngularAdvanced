@@ -1,5 +1,16 @@
-<ng-container *ngFor="let movie of allMovies">
-  <div>title: {{movie.title}}</div>
-  <div>imageUrl: {{movie.imageUrl}}</div>
-  <div>trailerUrl: {{movie.trailerUrl}}</div>
-</ng-container>
+<div class="grid col-2 direction-column justify-center">
+  <ng-container *ngFor="let movie of allMovies">
+    <div class="grid">
+      <div>title:</div>
+      <input [(ngModel)]="movie.title" type="text">
+      <div>imageUrl:</div>
+      <input [(ngModel)]="movie.imageUrl" type="text">
+      <div>trailerUrl:</div>
+      <input [(ngModel)]="movie.trailerUrl" type="text">
+      <button (click)="movieChanged.emit(movie)">save</button>
+    </div>
+  </ng-container>
+</div>
+
+
+

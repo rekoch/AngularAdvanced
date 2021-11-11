@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Movie} from "../../../../shared/models/movie";
 
 @Component({
@@ -9,6 +9,7 @@ import {Movie} from "../../../../shared/models/movie";
 export class OverviewComponent implements OnInit {
 
   @Input() allMovies: Movie [] = [];
+  @Output() movieChanged = new EventEmitter<Movie>();
 
   constructor() {
   }
