@@ -1,6 +1,6 @@
 import {Routes} from "@angular/router";
-import {InvitationComponent} from "./invitation/invitation.component";
+import {FriendsComponent} from "./friends/friends.component";
 
 export const friendsRoutes: Routes = [
-  {path: 'invite', component: InvitationComponent},
+  {path: '', component: FriendsComponent},
 ]

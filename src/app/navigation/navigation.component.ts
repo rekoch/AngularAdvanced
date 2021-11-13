@@ -12,7 +12,7 @@ export class NavigationComponent implements OnInit {
     {url: 'dashboard', name: 'Home'},
     {url: 'admin/movies/manage', name: 'Manage movies'},
     {url: 'admin/movies/rate', name: 'Rate movies'},
-    {url: 'admin/friends/invite', name: 'Invite Friend'},
+    {url: 'admin/friends', name: 'my friends'},
     {url: 'user/login', name: 'Login'},
     {url: 'user/register', name: 'Register'},
   ];

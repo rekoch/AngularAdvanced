@@ -1,0 +1,7 @@
+<div *ngFor="let friend of friends">
+  <div class="flex">
+    <div class="min-width">name: {{friend.name}}</div>
+    <div>status: {{friend.status}}</div>
+  </div>
+</div>
+<app-invitation (invitationCreated)="inviteFriend($event)"></app-invitation>

@@ -1,0 +1,21 @@
+<h2>invite a friend</h2>
+<form (ngSubmit)="createInvitation()" [formGroup]="invitation">
+  <div>
+    <label for="name">Name: </label>
+    <input formControlName="name" id="name" minlength="2" required type="text">
+    <div *ngIf="name.invalid && (name.touched || name.dirty)" class="alert">
+      <div *ngIf="email.errors?.['required']">insert name</div>
+      <div *ngIf="email.errors?.['minlength']">check name</div>
+    </div>
+  </div>
+  <div>
+    <label for="email">Email: </label>
+    <input formControlName="email" id="email" minlength="6" required type="text">
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+      <div *ngIf="email.errors?.['required']">insert email</div>
+      <div *ngIf="email.errors?.['email']">check email</div>
+    </div>
+  </div>
+  <button [disabled]="!invitation.valid" type="submit">invite</button>
+</form>
+
