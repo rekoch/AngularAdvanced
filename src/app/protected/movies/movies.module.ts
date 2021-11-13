@@ -9,6 +9,7 @@ import {SharedModule} from "../../shared/shared.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MovieEditComponent} from './manage/overview/movie-edit/movie-edit.component';
 import { MovieDetailComponent } from './manage/overview/movie-detail/movie-detail.component';
+import { MovieEditDirective } from './manage/overview/movie-edit.directive';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { MovieDetailComponent } from './manage/overview/movie-detail/movie-detai
     OverviewComponent,
     MovieEditComponent,
     MovieDetailComponent,
+    MovieEditDirective,
   ],
   imports: [
     CommonModule,

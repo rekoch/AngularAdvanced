@@ -1,6 +1,8 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Movie} from "../../../../../shared/models/movie";
+import {MovieEdit} from "../movie-edit";
+import {MovieEditDirective} from "../movie-edit.directive";
 
 @Component({
   selector: 'app-movie-edit',
@@ -8,10 +10,10 @@ import {Movie} from "../../../../../shared/models/movie";
   styleUrls: ['./movie-edit.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MovieEditComponent implements OnInit {
+export class MovieEditComponent implements OnInit, MovieEdit {
 
-  @Input() movieToChange: Movie | undefined;
-  @Output() movieChanged = new EventEmitter<Movie>();
+  @Input() movie!: Movie;
+  @Input() childRef!: MovieEditDirective;
 
   isEditActive = false;
   movieFormGroup: FormGroup | undefined;
@@ -38,26 +40,19 @@ export class MovieEditComponent implements OnInit {
   ngOnInit(): void {
     this.movieFormGroup = this.formBuilder.group(
       {
-        title: [this.movieToChange?.title, Validators.minLength(3)],
-        imageUrl: [this.movieToChange?.imageUrl, Validators.minLength(3)],
-        trailerUrl: [this.movieToChange?.trailerUrl, Validators.minLength(3)],
-        boxOffice: [this.movieToChange?.boxOffice, Validators.minLength(1)],
+        title: [this.movie?.title, Validators.minLength(3)],
+        imageUrl: [this.movie?.imageUrl, Validators.minLength(3)],
+        trailerUrl: [this.movie?.trailerUrl, Validators.minLength(3)],
+        boxOffice: [this.movie?.boxOffice, Validators.minLength(1)],
       })
   }
 
   editMovie() {
-    this.movieChanged.emit({
+    this.childRef.movieSaved.emit({
       trailerUrl: this.trailerUrl.value,
       imageUrl: this.imageUrl.value,
       title: this.title.value,
-      id: this.movieToChange?.id ? this.movieToChange?.id : 0
+      id: this.movie?.id ? this.movie?.id : 0
     });
-  }
-
-  prettifyBoxOffice() {
-    console.log('prettier runs');
-    return this.movieToChange?.boxOffice ?
-      this.movieToChange.boxOffice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ' ") :
-      0;
   }
 }

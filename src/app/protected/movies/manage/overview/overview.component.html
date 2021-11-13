@@ -13,8 +13,6 @@
   </div>
 </ng-container>
 
-<!-- there must be a better way for this, right? -->
-<app-movie-detail (activateEditMode)="editActive = true" *ngIf="selectedMovie && !editActive"
-                  [movie]="selectedMovie"></app-movie-detail>
-<app-movie-edit (movieChanged)="selectMovie(null)" *ngIf="selectedMovie && editActive"
-                [movieToChange]="selectedMovie"></app-movie-edit>
+<!-- the other way -->
+<ng-template (changeMode)="changeMode()" (movieSaved)="saveMovie($event)"
+             appMovieEdit></ng-template>

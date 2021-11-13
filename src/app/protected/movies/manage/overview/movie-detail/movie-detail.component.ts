@@ -1,16 +1,18 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Movie} from "../../../../../shared/models/movie";
+import {MovieEdit} from "../movie-edit";
+import {MovieEditDirective} from "../movie-edit.directive";
 
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',
-  styleUrls: ['./movie-detail.component.scss']
+  styleUrls: ['./movie-detail.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MovieDetailComponent implements OnInit {
+export class MovieDetailComponent implements OnInit, MovieEdit {
 
-  @Input() movie: Movie | undefined;
-  @Output() activateEditMode = new EventEmitter();
-
+  @Input() childRef!: MovieEditDirective;
+  @Input() movie!: Movie;
 
   constructor() {
   }
@@ -26,6 +28,6 @@ export class MovieDetailComponent implements OnInit {
   }
 
   editClicked() {
-    this.activateEditMode.emit()
+    this.childRef.changeMode.emit();
   }
 }

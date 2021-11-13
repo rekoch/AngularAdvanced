@@ -18,7 +18,6 @@ export class ManageComponent implements OnInit {
   }
 
   updateMovie(movie: Movie) {
-    debugger;
     this.moviesService.updateMovie(movie);
   }
 
