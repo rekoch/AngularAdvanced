@@ -9,14 +9,17 @@ button {
   background-color: variables.$primary-foreground;
   color: variables.$primary-background;
 
+  &[disabled] {
+    color: variables.$secondary-background;
+    border: 1px solid variables.$secondary-background;
+    background-color: transparent;
+    cursor: not-allowed;
+  }
+
   &.secondary {
     background-color: transparent;
     border: 1px solid variables.$primary-foreground;
+    color: variables.$secondary-foreground;
 
-    &[disabled] {
-      border: 1px solid variables.$secondary-background;
-      background-color: transparent;
-      cursor: not-allowed;
-    }
   }
 }

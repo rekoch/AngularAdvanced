@@ -5,6 +5,10 @@
   grid-gap: variables.$grid-gap;
   justify-content: center;
 
+  &.align-center {
+    align-items: center;
+  }
+
   &.col-1 {
     grid-template-columns: repeat(1, 1fr);
   }

@@ -3,4 +3,6 @@ export interface Movie {
   title: string;
   imageUrl: string;
   trailerUrl?: string;
+  boxOffice?: number;
+  isActive?: boolean;
 }

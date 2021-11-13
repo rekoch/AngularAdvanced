@@ -6,20 +6,23 @@ import {RouterModule} from "@angular/router";
 import {moviesRoutes} from "./movies-routes";
 import {OverviewComponent} from './manage/overview/overview.component';
 import {SharedModule} from "../../shared/shared.module";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MovieEditComponent} from './manage/overview/movie-edit/movie-edit.component';
 
 
 @NgModule({
   declarations: [
     ManageComponent,
     RateComponent,
-    OverviewComponent
+    OverviewComponent,
+    MovieEditComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(moviesRoutes),
     SharedModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class MoviesModule {

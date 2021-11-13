@@ -1,16 +1,16 @@
-<div class="grid col-2 direction-column justify-center">
-  <ng-container *ngFor="let movie of allMovies">
-    <div class="grid">
-      <div>title:</div>
-      <input [(ngModel)]="movie.title" type="text">
-      <div>imageUrl:</div>
-      <input [(ngModel)]="movie.imageUrl" type="text">
-      <div>trailerUrl:</div>
-      <input [(ngModel)]="movie.trailerUrl" type="text">
-      <button (click)="movieChanged.emit(movie)">save</button>
+<ng-container *ngIf="allMovies">
+  <div class="grid col-3">
+    <div (mouseover)="hoverMovie(movie)"
+         *ngFor="let movie of allMovies"
+         [class.hovered]=movie.isActive
+         class="animated flex wrap justify-center direction-column align-center">
+      <h2>{{movie.title}}</h2>
+      <img [src]="movie.imageUrl" alt="image of the movie">
+      <button (click)="selectMovie(movie)" [class.secondary]="selectedMovie">details</button>
     </div>
-  </ng-container>
-</div>
-
-
-
+  </div>
+  <div>
+  </div>
+</ng-container>
+<app-movie-edit (movieChanged)="selectMovie(null)" *ngIf="selectedMovie"
+                [movieToChange]="selectedMovie"></app-movie-edit>

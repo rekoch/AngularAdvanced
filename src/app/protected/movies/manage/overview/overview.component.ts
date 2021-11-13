@@ -10,6 +10,7 @@ export class OverviewComponent implements OnInit {
 
   @Input() allMovies: Movie [] = [];
   @Output() movieChanged = new EventEmitter<Movie>();
+  selectedMovie: Movie | null = null;
 
   constructor() {
   }
@@ -17,4 +18,12 @@ export class OverviewComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  selectMovie(movie: Movie | null) {
+    this.selectedMovie = movie;
+  }
+
+  hoverMovie(movie: Movie) {
+    this.allMovies.forEach(movie => movie.isActive = false);
+    movie.isActive = true;
+  }
 }

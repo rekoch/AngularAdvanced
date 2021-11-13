@@ -3,7 +3,8 @@
     <div (click)="selectMovie(movie)" *ngFor="let movie of movies"
          class="flex wrap justify-center direction-column align-center">
       <h2>{{movie.title}}</h2>
-      <img [src]="movie.imageUrl">
+      <img [src]="movie.imageUrl" alt="image of the movie">
+      <div class="py-1">box office: {{movie.boxOffice}}</div>
       <button (click)="rate(movie)" class="secondary">rate</button>
     </div>
   </div>

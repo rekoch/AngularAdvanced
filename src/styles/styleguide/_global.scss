@@ -18,3 +18,18 @@ body {
     cursor: pointer;
   }
 }
+
+.py-1 {
+  padding-top: variables.$padding-1;
+  padding-bottom: variables.$padding-1;
+}
+
+.my-1 {
+  margin-top: variables.$margin-1;
+  margin-bottom: variables.$margin-1;
+}
+
+.my-2 {
+  margin-top: variables.$margin-2;
+  margin-bottom: variables.$margin-2;
+}
