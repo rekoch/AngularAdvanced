@@ -1,11 +1,12 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Movie} from "../../../../../shared/models/movie";
 
 @Component({
   selector: 'app-movie-edit',
   templateUrl: './movie-edit.component.html',
-  styleUrls: ['./movie-edit.component.scss']
+  styleUrls: ['./movie-edit.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MovieEditComponent implements OnInit {
 
@@ -54,9 +55,7 @@ export class MovieEditComponent implements OnInit {
   }
 
   prettifyBoxOffice() {
-    /*
-        console.log('prettier runs');
-    */
+    console.log('prettier runs');
     return this.movieToChange?.boxOffice ?
       this.movieToChange.boxOffice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ' ") :
       0;
