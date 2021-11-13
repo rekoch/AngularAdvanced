@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from "rxjs";
+import {map, Observable, of} from "rxjs";
 import {Friend} from "../models/friend";
 
 @Injectable({
@@ -21,7 +21,12 @@ export class FriendsService {
   }
 
   getAllFriends(): Observable<Friend[]> {
-    return of(this.friends);
+    return of<Friend[]>(this.friends).pipe(
+      map(allFriends => allFriends.map(friend => {
+        friend.isSelected = false;
+        return friend
+      }))
+    )
   }
 
   addNewFriend(friend: Friend): Observable<boolean> {

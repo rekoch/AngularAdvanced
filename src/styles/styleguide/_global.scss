@@ -1,4 +1,5 @@
 @use "variables";
+
 * {
   color: variables.$primary-foreground;
 }
@@ -10,4 +11,10 @@ body {
 
 .frame {
   margin: variables.$margin-2;
+}
+
+.cursor {
+  &.pointer {
+    cursor: pointer;
+  }
 }

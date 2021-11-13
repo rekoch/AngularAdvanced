@@ -1,7 +1,9 @@
 <div *ngFor="let friend of friends">
   <div class="flex">
-    <div class="min-width">name: {{friend.name}}</div>
-    <div>status: {{friend.status}}</div>
+    <div (click)="selectFriend(friend)" class="min-width cursor pointer">name: {{friend.name}}</div>
+    <div class="min-width">status: {{friend.status}}</div>
+    <div>isSelected: {{friend.isSelected}}</div>
   </div>
 </div>
+<button *ngIf="selectedFriends > 0" class="cursor pointer">remove {{selectedFriends}} friends</button>
 <app-invitation (invitationCreated)="inviteFriend($event)"></app-invitation>

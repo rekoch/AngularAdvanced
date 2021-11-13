@@ -11,6 +11,7 @@ import {Observable} from "rxjs";
 })
 export class FriendsComponent implements OnInit {
   friends: Friend[] = [];
+  selectedFriends = 0;
 
   constructor(private friendsService: FriendsService, private emailValidator: EmailHelperService) {
   }
@@ -46,6 +47,16 @@ export class FriendsComponent implements OnInit {
 
   addFriend(friend: Friend): Observable<boolean | undefined> {
     return this.friendsService.addNewFriend(friend);
+  }
+
+  selectFriend(friendToSelect: Friend) {
+    friendToSelect.isSelected = true;
+    this.selectedFriends = 0;
+    this.friends.forEach(friend => {
+      if (friend.isSelected) {
+        this.selectedFriends++
+      }
+    });
   }
 
 }
