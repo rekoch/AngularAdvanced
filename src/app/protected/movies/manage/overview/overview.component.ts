@@ -19,22 +19,9 @@ export class OverviewComponent implements OnInit {
   }
 
   selectMovie(movie: Movie | null) {
-    if (this.selectedMovie && movie) {
-      this.selectedMovie.id = movie?.id ? movie.id : -1;
-      this.selectedMovie.title = movie?.title ? movie.title : '';
-      this.selectedMovie.imageUrl = movie?.imageUrl ? movie.imageUrl : '';
-      this.selectedMovie.trailerUrl = movie?.trailerUrl ? movie.trailerUrl : '';
-      this.selectedMovie.boxOffice = movie?.boxOffice ? movie.boxOffice : 0;
-    } else if (movie) {
-      this.selectedMovie = {
-        id: movie?.id ? movie.id : -1,
-        title: movie?.title ? movie.title : '',
-        imageUrl: movie?.imageUrl ? movie.imageUrl : '',
-        trailerUrl: movie?.trailerUrl ? movie.trailerUrl : '',
-        boxOffice: movie?.boxOffice ? movie.boxOffice : 0
-      }
+    if (movie) {
+      this.selectedMovie = {...movie};
     }
-
   }
 
   hoverMovie(movie: Movie) {
