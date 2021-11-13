@@ -7,13 +7,14 @@ button {
   border-radius: variables.$border-radius;
   margin-top: variables.$margin-2;
 
-  &.primary {
-
-  }
-
   &.secondary {
     background-color: transparent;
     border: 1px solid variables.$primary-foreground;
-  }
 
+    &[disabled] {
+      border: 1px solid variables.$secondary-background;
+      background-color: transparent;
+      cursor: not-allowed;
+    }
+  }
 }
