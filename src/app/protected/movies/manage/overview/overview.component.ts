@@ -50,6 +50,7 @@ export class OverviewComponent implements OnInit {
   }
 
   saveMovie($event: Movie) {
+    this.activeComponentName = 'detail';
     this.movieChanged.emit($event);
     this.appMovieEdit.viewContainerRef.clear();
   }
