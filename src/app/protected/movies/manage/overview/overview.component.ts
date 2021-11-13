@@ -11,6 +11,7 @@ export class OverviewComponent implements OnInit {
   @Input() allMovies: Movie [] = [];
   @Output() movieChanged = new EventEmitter<Movie>();
   selectedMovie: Movie | null = null;
+  editActive = false;
 
   constructor() {
   }

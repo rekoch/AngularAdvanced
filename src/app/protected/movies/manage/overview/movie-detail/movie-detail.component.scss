@@ -1,0 +1,7 @@
+.col-2 {
+  grid-template-columns: 80px 1fr;
+}
+
+.spread {
+  grid-column: 1/3;
+}

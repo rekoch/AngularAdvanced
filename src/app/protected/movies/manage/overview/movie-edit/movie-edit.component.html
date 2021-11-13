@@ -1,50 +1,36 @@
-<div *ngIf="!isEditActive else movieEditor" class="my-2 grid align-center col-2">
-  <div>name:</div>
-  <div>{{movieToChange?.title}}</div>
-  <div>name:</div>
-  <div>{{movieToChange?.imageUrl}}</div>
-  <div>name:</div>
-  <div>{{movieToChange?.trailerUrl}}</div>
-  <div>name:</div>
-  <div>{{prettifyBoxOffice()}}</div>
-  <button (click)="isEditActive=true">edit</button>
-</div>
-
-<ng-template #movieEditor>
-  <h2>edit a movie</h2>
-  <form (ngSubmit)="editMovie()" *ngIf="movieFormGroup" [formGroup]="movieFormGroup">
-    <div class="grid align-center col-2">
-      <label for="title">Name: </label>
-      <input formControlName="title" id="title" minlength="2" required type="text">
-      <div *ngIf="title.invalid && (title.touched || title.dirty)" class="alert">
-        <div *ngIf="title.errors?.['required']">insert title</div>
-        <div *ngIf="title.errors?.['minlength']">check title</div>
-      </div>
+<h2>edit a movie</h2>
+<form (ngSubmit)="editMovie()" *ngIf="movieFormGroup" [formGroup]="movieFormGroup">
+  <div class="grid align-center col-2">
+    <label for="title">Name: </label>
+    <input formControlName="title" id="title" minlength="2" required type="text">
+    <div *ngIf="title.invalid && (title.touched || title.dirty)" class="alert">
+      <div *ngIf="title.errors?.['required']">insert title</div>
+      <div *ngIf="title.errors?.['minlength']">check title</div>
     </div>
-    <div class="grid align-center col-2">
-      <label for="imageUrl">ImageUrl: </label>
-      <input formControlName="imageUrl" id="imageUrl" minlength="6" required type="text">
-      <div *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)" class="alert spread">
-        <div *ngIf="imageUrl.errors?.['required']">insert imageUrl</div>
-        <div *ngIf="imageUrl.errors?.['minlength']">check imageUrl</div>
-      </div>
+  </div>
+  <div class="grid align-center col-2">
+    <label for="imageUrl">ImageUrl: </label>
+    <input formControlName="imageUrl" id="imageUrl" minlength="6" required type="text">
+    <div *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)" class="alert spread">
+      <div *ngIf="imageUrl.errors?.['required']">insert imageUrl</div>
+      <div *ngIf="imageUrl.errors?.['minlength']">check imageUrl</div>
     </div>
-    <div class="grid align-center col-2">
-      <label for="trailerUrl">TrailerUrl: </label>
-      <input formControlName="trailerUrl" id="trailerUrl" minlength="6" required type="text">
-      <div *ngIf="trailerUrl.invalid && (trailerUrl.dirty || trailerUrl.touched)" class="alert spread">
-        <div *ngIf="trailerUrl.errors?.['required']">insert imageUrl</div>
-        <div *ngIf="trailerUrl.errors?.['minlength']">check imageUrl</div>
-      </div>
+  </div>
+  <div class="grid align-center col-2">
+    <label for="trailerUrl">TrailerUrl: </label>
+    <input formControlName="trailerUrl" id="trailerUrl" minlength="6" required type="text">
+    <div *ngIf="trailerUrl.invalid && (trailerUrl.dirty || trailerUrl.touched)" class="alert spread">
+      <div *ngIf="trailerUrl.errors?.['required']">insert imageUrl</div>
+      <div *ngIf="trailerUrl.errors?.['minlength']">check imageUrl</div>
     </div>
-    <div class="grid align-center col-2">
-      <label for="boxOffice">boxOffice: </label>
-      <input formControlName="boxOffice" id="boxOffice" minlength="1" required type="text">
-      <div *ngIf="boxOffice.invalid && (boxOffice.dirty || boxOffice.touched)" class="alert spread">
-        <div *ngIf="boxOffice.errors?.['required']">insert boxOffice</div>
-        <div *ngIf="boxOffice.errors?.['minlength']">check boxOffice</div>
-      </div>
+  </div>
+  <div class="grid align-center col-2">
+    <label for="boxOffice">boxOffice: </label>
+    <input formControlName="boxOffice" id="boxOffice" minlength="1" required type="text">
+    <div *ngIf="boxOffice.invalid && (boxOffice.dirty || boxOffice.touched)" class="alert spread">
+      <div *ngIf="boxOffice.errors?.['required']">insert boxOffice</div>
+      <div *ngIf="boxOffice.errors?.['minlength']">check boxOffice</div>
     </div>
-    <button [disabled]="!movieFormGroup.valid" type="submit">save</button>
-  </form>
-</ng-template>
+  </div>
+  <button [disabled]="!movieFormGroup.valid" type="submit">save</button>
+</form>
