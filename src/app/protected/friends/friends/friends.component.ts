@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FriendsService} from "../../../shared/services/friends.service";
 import {Friend} from "../../../shared/models/friend";
 import {EmailHelperService} from "../../../shared/services/email-helper.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-friends',
@@ -19,23 +20,32 @@ export class FriendsComponent implements OnInit {
   }
 
   inviteFriend($event: Friend) {
-    this.checkEmail($event.email).then(result => {
-        if (result) {
-          this.addFriend($event).then(() => {
-              console.log('juhuuuu, it worked')
-            }
-          );
-        }
+    // solution 1, the less nice one :)
+    this.checkEmail($event.email).subscribe(isEmailValid => {
+      if (isEmailValid) {
+        this.addFriend($event).subscribe({error: err => console.error('something went wrong' + err)})
+        // what do you do it there is another one to call?
       }
-    );
+    })
+
+    // solution 2, the better one
+
+    /* this.checkEmail($event.email).pipe(
+       mergeMap(isMailValid => {
+         if (isMailValid) {
+           return this.addFriend($event);
+         }
+         throw Error('email was invalid');
+       })
+     ).subscribe({error: err => console.error('something went wrong' + err)});*/
   }
 
-  async checkEmail(email: string): Promise<boolean | undefined> {
-    return await this.emailValidator.checkIsEmailValid(email).toPromise();
+  checkEmail(email: string): Observable<boolean> {
+    return this.emailValidator.checkIsEmailValid(email);
   }
 
-  async addFriend(friend: Friend): Promise<boolean | undefined> {
-    return await this.friendsService.addNewFriend(friend).toPromise();
+  addFriend(friend: Friend): Observable<boolean | undefined> {
+    return this.friendsService.addNewFriend(friend);
   }
 
 }
