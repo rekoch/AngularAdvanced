@@ -11,6 +11,7 @@ import {Movie} from "../../shared/models/Movie";
 })
 export class DashboardComponent implements OnInit {
   movies$!: Observable<Movie[]>;
+  selectedMovie: Movie | undefined;
 
   constructor(private router: Router, private movieService: MoviesService) {
   }
@@ -21,6 +22,10 @@ export class DashboardComponent implements OnInit {
 
   rate(movie: Movie) {
     this.router.navigate(['/admin/movies/rate', {id: movie.id}], {skipLocationChange: true});
+  }
+
+  selectMovie(movie: Movie) {
+    this.selectedMovie = movie;
   }
 }
 

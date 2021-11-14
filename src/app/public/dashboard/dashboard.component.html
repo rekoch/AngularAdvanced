@@ -1,7 +1,11 @@
 <div *ngIf="movies$ | async as movies" class="grid col-3">
-  <div *ngFor="let movie of movies" class="flex-center">
+  <div (click)="selectMovie(movie)" *ngFor="let movie of movies"
+       class="flex wrap justify-center direction-column align-center">
     <h2>{{movie.title}}</h2>
     <img [src]="movie.imageUrl">
     <button (click)="rate(movie)" class="secondary">rate</button>
   </div>
+</div>
+<div>
+  <app-trailer [videoSrc]="selectedMovie?.trailerUrl"></app-trailer>
 </div>
