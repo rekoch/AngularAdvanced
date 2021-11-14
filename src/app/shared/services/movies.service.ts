@@ -7,10 +7,25 @@ import {Movie} from "../models/Movie";
 })
 export class MoviesService {
 
-  allMovies = [
-    {id: 1, title: "what happened at BIT", imageUrl: 'https://picsum.photos/id/1025/200/300'},
-    {id: 2, title: "the other night in Zollikofen", imageUrl: 'https://picsum.photos/id/158/200/300'},
-    {id: 3, title: "Don't mess with Oblique", imageUrl: 'https://picsum.photos/id/219/200/300'},
+  allMovies: Movie [] = [
+    {
+      id: 1,
+      title: "what happened at BIT",
+      imageUrl: 'https://picsum.photos/id/1025/200/300',
+      trailerUrl: 'https://movietrailers.apple.com/movies/universal/sing-2/sing-2-trailer-3_i320.m4v'
+    },
+    {
+      id: 2,
+      title: "the other night in Zollikofen",
+      imageUrl: 'https://picsum.photos/id/158/200/300',
+      trailerUrl: 'https://movietrailers.apple.com/movies/focus_features/last-night-in-soho/last-night-in-soho-trailer-2_i320.m4v'
+    },
+    {
+      id: 3,
+      title: "Don't mess with Oblique",
+      imageUrl: 'https://picsum.photos/id/219/200/300',
+      trailerUrl: 'https://movietrailers.apple.com/movies/mgm/no-time-to-die/no-time-to-die-final-trailer_i320.m4v'
+    },
   ]
 
   constructor() {
@@ -30,5 +45,3 @@ export class MoviesService {
     return of(foundMovie)
   }
 }
-
-
